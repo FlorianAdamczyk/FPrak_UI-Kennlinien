@@ -1,0 +1,20 @@
+# latex zeug
+
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.lof
+*.lot
+*.toc
+*.synctex.gz
+
+# R zeug
+.Rhistory
+.RData
+.Rproj.user
+.Rproj
+
+
+\end{verbatim}
