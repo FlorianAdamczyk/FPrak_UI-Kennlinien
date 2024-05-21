@@ -10,7 +10,7 @@
 *.toc
 *.synctex.gz
 
-*.pdf
+UI-Kennlinien.pdf
 
 # R zeug
 .Rhistory
