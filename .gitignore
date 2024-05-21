@@ -10,6 +10,8 @@
 *.toc
 *.synctex.gz
 
+*.pdf
+
 # R zeug
 .Rhistory
 .RData
