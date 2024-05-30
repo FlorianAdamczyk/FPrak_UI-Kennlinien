@@ -1,5 +1,6 @@
 #importiere notwendige Bibliotheken
 library(ggplot2)
+library(patchwork)
 
 
 #import der daten in dataframe
@@ -40,7 +41,7 @@ plot_EingangsKF <- ggplot(biTrans, aes(x = U.be..V.)) +
   geom_line(data = tangente11, aes(x = U, y = I),
             color = "darkorange", linetype = "dashed", size = 1) +
   geom_point(aes(x = U_beAP, y = I_b_AP), color = "red", size = 3) +
-  annotate("label", x = 0.3, y = 0.3, size = 6,
+  annotate("label", x = 0.3, y = 0.3, size = 8,
           label = paste("U_BE = a*I_B+b\na = ", round(slope11, 3),
           " ± ", round(slope11_err, 3), "\n b = ", round(intercept11, 3),
           " ± ", round(intercept11_err, 3))) +
@@ -48,7 +49,7 @@ plot_EingangsKF <- ggplot(biTrans, aes(x = U.be..V.)) +
        x = "U_BE",
        y = "I_B") +
   xlim(0, 0.8) +
-  theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 16))
+  theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 24))
 plot_EingangsKF
 #Rotation für späteren Plot im Vierquadrantenkennlinienfeld
 plot_flip_EingangsKF <- plot_EingangsKF +
@@ -87,13 +88,13 @@ plot_AusgangsKF <- ggplot(biTrans, aes(x = U_CE)) +
   geom_line(aes(y = I.Ib.300E.3), color = "darkblue", linewidth = 1.3) +
   geom_line(aes(y = I.Ib.400E.3), color = "darkblue",  linewidth = 1.3) +
   geom_line(aes(y = I.Ib.500E.3), color = "darkblue", linewidth = 1.3) +
-  annotate("label", x = 5.5, y =  biTrans$I.Ib.100E.3[500], size = 5, label = "100 mA") +
-  annotate("label", x = 5.5, y =  biTrans$I.Ib.200E.3[500], size = 5, label = "200 mA") +
-  annotate("label", x = 5.5, y =  biTrans$I.Ib.300E.3[500], size = 5, label = "300 mA") +
-  annotate("label", x = 5.5, y =  biTrans$I.Ib.400E.3[500], size = 5, label = "400 mA") +
-  annotate("label", x = 5.5, y =  biTrans$I.Ib.500E.3[500], size = 5, label = "500 mA") +
-  annotate("label", x = 5.5, y =  100, size = 5, label = expression(I[B])) +
-  annotate("label", x = 2, y = 010, size = 6,
+  annotate("label", x = 5.5, y =  biTrans$I.Ib.100E.3[500], size = 6, label = "100 mA") +
+  annotate("label", x = 5.5, y =  biTrans$I.Ib.200E.3[500], size = 6, label = "200 mA") +
+  annotate("label", x = 5.5, y =  biTrans$I.Ib.300E.3[500], size = 6, label = "300 mA") +
+  annotate("label", x = 5.5, y =  biTrans$I.Ib.400E.3[500], size = 6, label = "400 mA") +
+  annotate("label", x = 5.5, y =  biTrans$I.Ib.500E.3[500], size = 6, label = "500 mA") +
+  annotate("label", x = 5.5, y =  100, size = 6, label = expression(I[B])) +
+  annotate("label", x = 2, y = 10, size = 8,
           label = paste("I_CE = a*U_CE+b\na = ", round(slope22, 3),
           " ± ", round(slope22_err, 3), "\n b = ", round(intercept22, 3),
           " ± ", round(intercept22_err, 3))) +
@@ -105,7 +106,7 @@ plot_AusgangsKF <- ggplot(biTrans, aes(x = U_CE)) +
        y = "I_C") +
   xlim(0, 6) +
   ylim(0, 100) +
-  theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 16))
+  theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 24))
 plot_AusgangsKF
 
 
@@ -136,14 +137,14 @@ plot_StromKF <- ggplot(biTrans, aes(x = I.be.mA.)) +
   geom_point(aes(x = I_b_AP, y = I_C2_AP), color = "red", size = 3) +
   geom_line(data = tangente21, aes(x = IB, y = IC),
             color = "darkorange", linetype = "dashed", size = 1) +
-  annotate("label", x = 0.35, y = 20, size = 6,
+  annotate("label", x = 0.35, y = 20, size = 8,
           label = paste("I_C = a*I_B+b\na = ", round(slope21, 3),
           " ± ", round(slope21_err, 3), "\n b = ", round(intercept21, 3),
           " ± ", round(intercept21_err, 3))) +
   labs(title = "Stromverstärkungslennlinienfeld",
        x = "I_B",
        y = "I_C") +
-  theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 16))
+  theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 24))
 plot_StromKF
 
 #drehe für Viererkennlinie
@@ -182,13 +183,13 @@ plot_SpannungKF <- ggplot(biTrans, aes(x = U_CE)) +
   geom_line(aes(y = 0.01*Ube.Ib.300E.3), color = "darkblue", linewidth = 1.3) +
   geom_line(aes(y = 0.01*Ube.Ib.400E.3), color = "darkblue",  linewidth = 1.3) +
   geom_line(aes(y = 0.01*Ube.Ib.500E.3), color = "darkblue", linewidth = 1.3) +
-  annotate("label", x = 5.5, y =  0.56, size = 5, label = "100 mA") +
-  annotate("label", x = 5.5, y =  0.62, size = 5, label = "200 mA") +
-  annotate("label", x = 5.5, y =  0.68, size = 5, label = "300 mA") +
-  annotate("label", x = 5.5, y =  0.74, size = 5, label = "400 mA") +
-  annotate("label", x = 5.5, y =  0.8, size = 5, label = "500 mA") +
-  annotate("label", x = 5.5, y =  0.48, size = 5, label = expression(I[B])) +
-  annotate("label", x = 3, y = 0.4 , size = 6,
+  annotate("label", x = 5.5, y =  0.56, size = 6, label = "100 mA") +
+  annotate("label", x = 5.5, y =  0.62, size = 6, label = "200 mA") +
+  annotate("label", x = 5.5, y =  0.68, size = 6, label = "300 mA") +
+  annotate("label", x = 5.5, y =  0.74, size = 6, label = "400 mA") +
+  annotate("label", x = 5.5, y =  0.8, size = 6, label = "500 mA") +
+  annotate("label", x = 5.5, y =  0.48, size = 6, label = expression(I[B])) +
+  annotate("label", x = 3, y = 0.4, size = 8,
           label = paste("U_BE = a*U_CE+b\na = ", round(slope12, 3),
           " ± ", round(slope12_err, 3), "\n b = ", round(0.01*intercept12, 3),
           " ± ", round(0.01*intercept12_err, 3))) +
@@ -200,11 +201,30 @@ plot_SpannungKF <- ggplot(biTrans, aes(x = U_CE)) +
        y = "U_BE") +
   xlim(0, 6) +
   ylim(0, 0.8) +
-  theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 16))
+  theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 24))
 plot_SpannungKF
 
 
 plot_flip_SpannungKF <- plot_SpannungKF +
-  scale_y_reverse()
+  scale_y_reverse() +
+  ylim(0.8, 0)
 
 plot_flip_SpannungKF
+
+plot_flip_SpannungKF <- plot_flip_SpannungKF +
+  theme(plot.title = element_blank())
+
+plot_flip_EingangsKF <- plot_flip_EingangsKF +
+  theme(plot.title = element_blank())
+plot_flip_StromKF <- plot_flip_StromKF  + theme(plot.title = element_blank())
+
+plot_AusgangsKF
+
+plot_AusgangsKF <- plot_AusgangsKF +
+  theme(plot.title = element_blank())
+
+plot_flip_EingangsKF
+plot_flip_StromKF
+plot_flip_SpannungKF
+plot_AusgangsKF
+ggsave("AusgangsKF.svg", plot_AusgangsKF, bg = "transparent", width = 10, height = 8)
