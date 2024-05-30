@@ -49,8 +49,7 @@
 
 \usepackage{siunitx}
 \sisetup{
-	locale = DE ,
-	separate-uncertainty = false,
+	separate-uncertainty = true,
 	%per-mode = fraction,
 	%per-mode = symbol
 }
@@ -154,8 +153,80 @@
 
 	\section{Diode}
 	
-	\section{Transistor}
-	
+	\section{Bipolartransistor}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=7.5 cm]{plots/transistor_schaltung.png}
+			\caption{Schaltskizze eines pnp-Transistors}
+			\label{img:pnpSchaltung}
+		\end{figure} 
+		Im folgendem Versuchsteil werden die typischen Kennlinienfelder eines Bipolartransistors vermessen. Es handelt sich um einen pnp-Transistor des Typs BC550. Ein Schaltplan solch eines Transistors ist in Abbildung \ref{img:pnpSchaltung} dargestellt. Dabei sind die wichtigsten Größen eingetragen, dazu zählen der Kollektor- und Basisstrom $I_C$ und $I_B$, zudem die jeweiligen Spannungen zwischen Kollektor, Emitter und Basis. 
+		\subsection{Vierpolarparameter}
+				\begin{figure}[h]
+			\centering
+			\includegraphics[width=7.5 cm]{plots/Vierpol.pdf}
+			\caption{allgemeiner Vierpol}
+			\label{img:Vierpol}
+		\end{figure} 
+		Jedes elektronische Bauteil kann als Vierpol dargestellt werden, in Abbildung \ref{img:Vierpol} ist der Schaltplan eines allgemeinen Vierpols angegeben. Das Modell beschreibt ein elektrisches Netzwerk oder Bauteil durch zwei Ein- und Ausgänge, dabei wird eine lineares Gleichungssystem mit einer 2x2 Matrix verwendet.\\
+		Transistoren sind aktive Bauelemente und nicht linear, deshalb müssen sie in einem Punkt linearisiert werden, damit die Beschreibung des Vierpols angewandt werden kann. Dieser Punkt heißt Arbeitspunkt des Transistors. Für Transistoren in der Emittersschaltung wird häufig die folgende Hybrid-Darstellung verwendet:
+		\begin{equation}
+			\begin{pmatrix}
+				u_{BE}\\
+				i_C
+			\end{pmatrix}
+		=	\begin{pmatrix}
+				h_{11} & h_{12}\\
+				h_{21} & h_{22}\\
+			\end{pmatrix}
+		=	\begin{pmatrix}
+				i_{B}\\
+				u_{CE}
+			\end{pmatrix}
+		\end{equation}
+		Wie bereits erwähnt wird am Arbeitspunkt des Transistors linearisiert, deshalb sind die Vierpolparameter Ableitungen in der folgenden Form:
+		\begin{equation}
+			\begin{split}
+				h_{11} = \frac{\partial U_{BE}}{\partial I_{B}} \qquad h_{12} = \frac{\partial U_{BE}}{\partial U_{CE}}\\
+				h_{21} = \frac{\partial I_{C}}{\partial I_{B}} \qquad h_{22} = \frac{\partial I_{C}}{\partial U_{CE}}\\
+			\end{split}
+		\end{equation}
+		\subsection{Bestimmung der Parameter}
+	\begin{figure}[h]
+			\centering
+			\includegraphics[width=\textwidth]{plots/Vierquadrantenkennlinienfeld.pdf}
+			\caption{Vierquadrantenkennlinienfeld des Bipolartransistors}
+			\label{img:Vierquadranten}
+	\end{figure}
+	In Abbildung \ref{img:Vierquadranten} sind die aufgenommen, typischen vier Kennlinien des Transistors aufgetragen. In Rot ist jeweils der gewählte Arbeitspunkt eingetragen, dieser wird folgenden Werten gewählt:
+	\begin{equation}
+		I_B = \SI{0.2}{\milli \ampere} \qquad U_{CE} = \SI{2}{\volt}
+	\end{equation}
+	Zudem in orange ist die jeweilige Fitgerade eingezeichnet und die Fitparameter sind gegeben.\\
+	Der erste Vierpolparameter ergibt sich aus der Eingangskennlinien, also der $U_{BE}$-$I_B$-Kennlinie. Dieser Parameter ist direkt der differentielle Transistor-Eingangswiederstand:
+	\begin{equation}
+		r_{BE} = \frac{\Delta U_{BE}}{\Delta I_{B}}
+	\end{equation}
+	Im obigen Kennlinienfeld wurde die Gerade in einem Bereich von \SI{0.05}{\milli \ampere} um den Arbeitspunkt für $I_B$ zu $U_{BE}$ gefittet. Der differentielle Eingangswiederstand ist damit der Kehrwert des Fitparameters $a$, zudem werden die \si{\milli \ampere} in \si{\ampere} umgerechnet, um die Einheit \si{\ohm} zu erhalten:
+	\begin{equation}
+		r_{BE} = \frac{1}{a} = \underline{\SI{214.041(20.525)}{\ohm} = h_{11}}
+	\end{equation}
+	Der Vierpolparamter $h_22$ kann im Ausgangskennlinienfeld über den differentiellen Transistor-Ausgangswiderstand bestimmt werden. Der Widerstand ist die Steigung des Fits, erneut werden die \si{\milli \ampere} in \si{\ampere} umgerechnet:
+	\begin{equation}
+		r_{CE} =  \frac{\Delta U_{CE}}{\Delta I_{C}} = \SI{4009(31)}{\ohm}
+	\end{equation}
+	Der dazugehörige Vierpolparameter berechnet sich aus dem Kehrwert des Ausgangswiderstands:
+	\begin{equation}
+		\underline{h_{22} = \SI{2.494(19)E-4}{1 \per \ohm}}
+	\end{equation}
+	Aus dem Stromsteuerungskennlinienfeld $I_C$-$I_B$ kann der differentielle Stromverstärkungsfaktor $\beta$ bestimmt werden. Dieser ist entspricht dem Anstieg der gefitten Geraden und gibt in gewisser Weise an, um welchen Faktor der Transistor den Kollektorstrom verstärkt. Dieser Faktor ist auch der Vierpolparameter $h_{21}$:
+	\begin{equation}
+		\beta =  \frac{\Delta I_{C}}{\Delta I_{B}} = \underline{207.5 \pm 4.2 = h_{21}}
+	\end{equation}
+	Der letzte Vierpolparameter ist im Rückwirkungskennlinienfeld der differentielle Rückwirkungsfaktor $D$. Dieser gibt an wie stark Änderungen der Ausgangsspannung $U_{CE}$ auf die Eingangsspannung $U_BE$ zurückwirken. Solche sind unerwünscht un sollen möglichst klein sein. 
+	\begin{equation}
+		 D = \frac{\Delta U_{BE}}{\Delta U_{CE}} = \underline{-0.298 \pm 0.052 = h_{12}}
+	\end{equation}
 	\section{Solarzelle}
 
 
