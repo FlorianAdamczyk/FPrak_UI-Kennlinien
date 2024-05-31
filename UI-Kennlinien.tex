@@ -281,7 +281,33 @@
 	\section{Feldeffektransistor}
 
 	\section{Solarzelle}
-	\fehlt
+		
+		\subsection*{Grundlagen - wichtige Kenngrößen}
+		\begin{description}
+		\item[Das Strom-/Spannungsverhältnis] ist durch 
+		\begin{eqnarray}\label{eq:photo1}
+			I(U)=I_S\left( e^{\frac{eU}{nkT}} -1 \right) - I_P
+		\end{eqnarray}
+		näherungsweise beschrieben. Die Gleichung entspricht bis auf $I_P$ (Photostrom) der Diodengleichung, denn da eine Solarzelle eigentlich nur eine große lichtsensitive Diode ist, gilt für sie, solange sie abgedunkelt ist die Schockley-Gleichung.
+		.
+		\item[Die Leerlaufspannung] ist als die ohne Stromfluss durch die Solarzelle erzeugte Potentialdifferenz definiert. $\rightarrow I(U_{OC})\stackrel{!}{=}0$ Wenn man dies in Gleichung \ref{eq:photo1} einsetzt ergibt sich:
+		$$U_{OC}=\frac{kT}{e}\ln\frac{I_P}{I_S}$$
+		\item[Der Kurzschlussstrom] ist der Strom, der ohne anliegende Spannung fließt.
+		$$I_{SC}=I(0)=I_S\left( e^{\frac{e\cdot0}{nkT}} -1 \right) - I_P=I_S\left(1-1 \right) - I_P=-I_P.$$
+		Der negierte Photostrom entspricht also dem Kurzschlusstrom
+		\item[Der Maximum-Power-Point] ist der Punkt der maximalen Leistung $P_{Max}$ einer Solarzelle. Um ihn zu erreichen gilt es $P=I\cdot U$ zu maximieren.
+		\item[Der Füllfaktor] $FF=\frac{P_{MPP}}{I_{SC}\cdot U_{OC}}$ ist ein Gütekriterium. Er sollte nahe 1 liegen.
+		\item[Der Wirkungsgrad] ist der Quotient aus maximaler Leistung und durch die Bestrahlung gegebenen:$$\eta=\frac{P_{MPP}}{P_{Ein}}$$
+		\end{description}
+
+		\subsection{Dunkelkennlinien}
+
+		Die Gleichung der Dunkelkennlinie ist äquivalent zur Diodengleichung \ref{eq:shockley}. Nach Rechnungen und Fits gleicher Art, wie zuvor im Versuchteil der Dioden erhalten wir folgende Ergebnisse:
+		
+		
+
+		
+		
 
 
 
