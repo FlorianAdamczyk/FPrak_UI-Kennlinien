@@ -179,14 +179,14 @@
 
 		Im Schockley-Fit kann man den Sättigungssperrstrom $I_\text{S}$ und den Idealitätsfaktor $n$ bestimmen. Daraus ergibt sich:
 		\begin{itemize}
-			\item Sättigungssperrstrom $I_\text{S} = \SI{2,129 +- 2,0394 e-2}{\micro\ampere}$
-			\item Emissionskoeffizient $n = \num{2,386 +- 0,198} $
+			\item Sättigungssperrstrom $I_\text{S} = \SI{2.129 +- 2.0394 e-2}{\micro\ampere}$
+			\item Emissionskoeffizient $n = \num{2.386 +- 0.198} $
 		\end{itemize}
 
 		Um die Durchbruchspannung zu bestimmen, betrachten wir den linearen Fit auf der rechten Seite des Diagramms. Davon müssen wir den Schnittpunkt mit der x-Achse (bzw. Spannungsachse) bestimmen.
 		Dazu setzen wir die Gleichung\\
 		$I=B \cdot U_D + A \stackrel{!}{=} 0$. Hieraus ergibt sich dann:
-		$$U_D = \frac{-a}{b}  = \frac{-536,703}{141,987} = \qty{3,77}{\volt}$$
+		$$U_D = \frac{-a}{b}  = \frac{-536.703}{141.987} = \qty{3.77}{\volt}$$
 
 		Aus Origin werden folgende Fehler für $b$ und $a$ gegeben:\\ $\Delta b = \pm 3,670 $ und $\Delta a = \pm 15,329$.
 
@@ -197,7 +197,7 @@
 
 
 		Die bestimmte Durchschlagsspannung ist also:
-			\[ U_D = \qty{3,77 +- 0,21}{\volt}\]
+			\[ U_D = \qty{3.77 +- 0.21}{\volt}\]
 
 		Dieser Wert lässt darauf schließen, dass es sich bei der untersuchten Diode um eine Zener-Diode handelt: Diese Dioden werden beim Betrieb in Sperrrichtung nicht zerstört und
 		lassen sich beispielsweise als Spannungsstabilisatoren einsetzen.
@@ -279,7 +279,21 @@
 	\end{equation}
 
 	\section{Feldeffektransistor}
-
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\textwidth]{plots/MosFET.pdf}
+		\caption{Grundlegender Aufbau eines Metall-Oxid-Feldeffekttransistors}
+		\label{img:MosFET}
+	\end{figure}	
+	Die Abbildung \ref{img:MosFET} zeigt den Grundlegenden Aufbau eines MOS-FET, die drei Anschlüsse heißen Source, Drain und Gate. Wenn zwischen Gate und Source eine Spannung angelegt wird, bildet sich eine leitende Brücke zwischen Source und Drain aus. Für die Stereung von $U_{GS}$ ist fast kein Strom notwendig, daher ist die Steuerung eines MOS-FET's quasi leistungslos möglich.\\
+	\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{plots/FET.pdf}
+	\caption{Kennlinienfelder des Feldeffektransistors}
+	\label{img:FET}
+	\end{figure}
+	In Abbildung \ref{img:FET} sind die das $I_D$-$U_{DS}$ und $I_D$-$U_{GS}$ Kennlinienfeld, des Feldeffektransistors geplottet. Das erstere wird auch Ausgangskennlinienfeld genannt, es wurde für verschiedene Steuerspannungen $U_GS$ aufgezeichnet. Ab der Mindestgatespannung von etwas unter \SI{1}{\volt}, steigen die Kennlinien nur geringfügig an.\\
+	Im linkem, dem Eingangkennlinienfeld wird deutlich, dass es sich tatsächlich um einen  Metall-Oxid-Feldeffekttransistors handelt, da der Strom $I_D$ bei einer Gate-Source-Spannung unter etwa \SI{1.4}{\volt} gleich null ist, der Transistor ist demnach selbstsperrend, danach steigt der Strom sprungartig an. Das $I_D$-$U_{GS}$ Kennlinienfeld zeigt die Steuerungseigenschaft des MOS-FET´s.
 	\section{Solarzelle}
 		
 		\subsection*{Grundlagen - wichtige Kenngrößen}
