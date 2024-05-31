@@ -52,6 +52,7 @@
 	separate-uncertainty = true,
 	%per-mode = fraction,
 	%per-mode = symbol
+	%locale = DE
 }
 \DeclareSIUnit\bar{bar}
 \DeclareSIUnit\atomicmassunit{u}
@@ -376,15 +377,24 @@ auf den strukturellen Aufbau der Zelle zurückführen.
 		\paragraph{Kurzschlussstrom}
 		$$\left|\frac{I_{SC}}{A}\right|=\frac{23,9\,\text{mA}}{\qty{19,63}{\centi\square\metre}}\approx\qty{1,22}{\milli\ampere\per\centi\square\metre} $$
 		
-		\paragraph{MPP} Siehe hierzu Graph \ref{fig:sol-mon-p}
-		$$U_{MP}=0,39\,\text{V}$$ $$\vert I_{MP}\vert=24,658\,\text{mA}$$ 
-		Dieser Punkt impliziert eine Leistung von 9,37mV.
+		\paragraph{MPP} Siehe hierzu Graph \ref{fig:Leistkrishell}
+		$$U_{MP}=0,36\,\text{V}$$ $$\vert I_{MP}\vert=20,264\,\text{mA}$$ 
+		Dieser Punkt impliziert eine Leistung von 7,295mV.
+
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\textwidth]{Origin/LeistungKristall.png}
+			\caption{Leistungskennlinie der kristallinen Solarzelle im Licht}
+			\label{fig:Leistkrishell}
+		\end{figure}
 		
 		\paragraph{Füllfaktor}
 		
-		$$    Ff=\frac{I_{MP}U_{MP}}{I_{SC}U_{OC}}=\frac{99,1\,\text{mV}\cdot144,775\,\text{mA}}{390\,\text{mV}\cdot24,658\,\text{mA}}=65,3\%   $$
+		$$    Ff=\frac{I_{MP}U_{MP}}{I_{SC}U_{OC}}= \frac{\qty{20,264}{\milli\ampere}\cdot \qty{0,36}{\volt}}{\qty{23,9}{\milli\ampere} \cdot \qty{0,472}{\volt}} = \num{0,646678} \approx \qty{64,67}{\percent}  $$
 		
-		\paragraph{Der Wirkungsgrad} ist über die Leistung der Lampe zu errechnen. Diese strahlt in Summe 150W aus. Die Solarzelle ist 44,7cm von der Lampe entfernt und mit einem Flächeninhalt von 25cm$^2$ ergibt sich so eine Lichtleistung von $150W\cdot\frac{25cm^2}{12554cm^2}=0,300W$
+		\paragraph{Der Wirkungsgrad} ist über die Leistung der Lampe zu errechnen. Auf einen Messkopf mit einem Durchmesser von $\SI{1}{\centi\m} = \qty{0,01}{\m}$ strahlt die Lampe am Ort der Messung (der Solarzellen und des Messkopfs) eine Leistung von $P = \SI{9,2}{\milli\watt} $ ab. Das entspricht einer Leistungsdichte von $\frac{P}{A} = \frac{\qty{9,2}{\milli\watt}}{\pi\cdot(\qty{0,005}{\m})^2} = \frac{\qty{9,2}{\milli\watt}}{\qty{7,854e-5}{\square\metre}} = \qty{117,138}{\watt\per\m} $\\
+		Auf Die Solarzelle fällt also eine Leistung von:
+		\[P = \qty{117,138}{\watt\per\m} \cdot \qty{19,63}{\centi\m^2} = \qty{22,99}{\watt}\]
 		
 		Der Wirkungsgrad ist somit:
 		$$
