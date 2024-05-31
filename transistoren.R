@@ -228,3 +228,40 @@ plot_flip_StromKF
 plot_flip_SpannungKF
 plot_AusgangsKF
 ggsave("AusgangsKF.svg", plot_AusgangsKF, bg = "transparent", width = 10, height = 8)
+
+
+#Feldeffekttransistor
+FETdata <- read.table("data/FET.dat", sep = "\t", header = TRUE)
+
+
+plot_FET1 <- ggplot(FETdata, aes(x = U.V.)) +
+  theme_bw() +
+  geom_line(aes(y = I.mA.2.7E.0), color = "darkblue",  linewidth = 1.3) +
+  geom_line(aes(y = I.mA.1.0E.0), color = "darkblue",  linewidth = 1.3) +
+  geom_line(aes(y = I.mA.1.5E.0), color = "darkblue", linewidth = 1.3) +
+  geom_line(aes(y = I.mA.2.0E.0), color = "darkblue",  linewidth = 1.3) +
+  geom_line(aes(y = I.mA.2.5E.0), color = "darkblue", linewidth = 1.3) +
+  geom_line(aes(x = U.gs..V. , y = I.ds..mA.), color = "darkblue", linewidth = 1.3) +
+  annotate("label", x = 8.8, y =  0, size = 6, label = "1.5 V") +
+  annotate("label", x = 8.8, y =  12, size = 6, label = "2.0 V") +
+  annotate("label", x = 8.8, y =  52, size = 6, label = "2.5 V") +
+  annotate("label", x = 8.8, y =  76, size = 6, label = "2.7 V") +
+  annotate("label", x = 8.8, y =  90, size = 6, label = expression(U[GS])) +
+  geom_vline(xintercept = 0, color = "black", size = 0.8) +
+  geom_segment(aes(x = -0.07, y = 25, xend = 0.07, yend = 25)) +
+  geom_segment(aes(x = -0.07, y = 50, xend = 0.07, yend = 50)) +
+  geom_segment(aes(x = -0.07, y = 75, xend = 0.07, yend = 75)) +
+  geom_segment(aes(x = -0.07, y = 100, xend = 0.07, yend = 100)) +
+
+  geom_text(aes(x = 0, y = 25, label = "25"), hjust = 1.5, size = 7,check_overlap = TRUE) + 
+  geom_text(aes(x = 0, y = 50, label = "50"), hjust = 1.5, size = 7,check_overlap = TRUE) + 
+  geom_text(aes(x = 0, y = 75, label = "75"), hjust = 1.5, size = 7,check_overlap = TRUE) + 
+  geom_text(aes(x = 0, y = 100, label = "100"), hjust = 1.5, size = 7,check_overlap = TRUE) + 
+
+  scale_x_continuous(breaks = c(-4,-2,0,2,4,6,8), labels = c("4","2","0","2","4","6","8")) +
+  theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 24),
+  axis.title.y = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank(),
+   axis.title.x = element_blank())
+plot_FET1
+
+ggsave("FET.pdf", plot_FET1, width = 10, height = 8)
