@@ -59,8 +59,8 @@
 
 
 \setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
-\title{UI-Kennlinien}			%%%%%%%%%%
-% Title
+\title{UI-Kennlinien}		%%%%%%%%%% T I T L E %%%%%%%%%%
+% Title / Titel
 
 
 \author{Frederik Uhlemann, F. Adamczyk}
@@ -141,18 +141,68 @@
 %\setcounter{chapter}{-1}
 \chapter*{Einleitung}
 	\addcontentsline{toc}{chapter}{Einleitung}
-	\fehlt
+	
+	In der Welt der Elektronik sind die Charakteristiken von Halbleiterbauteilen von entscheidender Bedeutung. Dieser Versuch zielt darauf ab, die typischen Kennlinien einer Diode, eines Bipolartransistors und eines Feldeffekttransistors zu erfassen, um ihre spezifischen Eigenschaften und Verhaltensweisen zu verstehen. Zusätzlich liegt ein Fokus auf der Untersuchung von Solarzellen, bei denen durch die Aufnahme von Dunkel- und Hellkennlinien wichtige Kenngrößen ermittelt werden sollen. Die Ergebnisse sollen nicht nur Aufschluss über den Typ der Dioden und Transistoren geben, sondern auch über die Leistungsfähigkeit der Solarzellen, wie etwa den Füllfaktor und die relative Effizienz.
 
 
 
 \chapter{Versuchsaufbau und Durchführung}
-	\fehlt
+	In den Versuchen werden die Kennlinien der Halbleiterbauteile aufgenommen. Dazu werden die fertigen Schaltungen mit dem Messgerät farblich passend verbunden und die Kennlinien mit einem LABVIEW-Programm aufgenommen und auf einen USB-Stick abgespeichert. So können die Daten später ausgewertet werden.\\
+
+	\begin{itemize}
+	\item[-] Im ersten Versuchsteil wird die Kennlinie einer Diode aufgenommen. Dazu wird die Diode in Durchlassrichtung und in Sperrrichtung betrieben.
+	\item[-] Im zweiten Versuchsteil wird die Kennlinie eines Bipolartransistors aufgenommen. Dazu wird der Transistor in der Emitterschaltung betrieben und die vier Kennlinienfelder aufgenommen.
+	\item[-] Im dritten Versuchsteil wird die Kennlinie eines Feldeffekttransistors aufgenommen. Dazu wird der Transistor in der Source-Schaltung betrieben und die vier Kennlinienfelder aufgenommen.
+	\item[-] Im vierten Versuchsteil werden zwei Solarzellen untersucht. Dazu wird die Kennlinie der Solarzellen im Dunkeln und im Licht aufgenommen und die jeweiligen Kennlinien abgespeichert.
+	\end{itemize}
 
 \chapter{Auswertung}
-	\fehlt
-
 	\section{Diode}
-	
+		Die auch Diodengleichung (oder auch Shockley-Gleichung) ist: 
+		\begin{eqnarray}
+		\label{eq:shockley}
+		I_\text{D} = I_\text{S}(T) \, \left(\mathrm e^\frac{U}{n\,U_\text{T}} - 1 \right)
+		\end{eqnarray}
+		
+		Dabei bezeichnet $I_\text{S}(T)$ den Sättigungssperrstrom welcher typischerweise zwischen \qty{10e-12}{\ampere} und \qty{10e-6}{\ampere} liegt, $ U_\text{T}= \frac{k \cdot T} q$ die Tem\-pe\-ra\-tur\-span\-nung und $n$ den Idealitätsfaktor oder Emissionskoeffizient. Dieser soll auch bestimmt werden und liegt typischerweise zwischen 1 und 2.\\ 
+		In unserem Fall (bei Raumtemperatur von \qty{25}{\celsius}) beträgt die Temperaturspannung  $U_T = \qty{25}{\milli\volt}$.
+		
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\textwidth]{Origin/Graph1.png}
+			\caption{Kennlinie der Diode}
+			\label{fig:Diodenkennlinie}
+		\end{figure}
+
+		In Abbildung \ref{fig:Diodenkennlinie} ist die Kennlinie der Diode dargestellt. \\ 
+		Der rechte Teil der Kennlinie ist mit der Gleichung \ref{eq:shockley} gefittet worden, während der linke Teil nicht mit dieser Gleichung beschrieben werden kann und daher liner gefittet ist. \\
+
+		Im Schockley-Fit kann man den Sättigungssperrstrom $I_\text{S}$ und den Idealitätsfaktor $n$ bestimmen. Daraus ergibt sich:
+		\begin{itemize}
+			\item Sättigungssperrstrom $I_\text{S} = \SI{2,129 +- 2,0394 e-2}{\micro\ampere}$
+			\item Emissionskoeffizient $n = \num{2,386 +- 0,198} $
+		\end{itemize}
+
+		Um die Durchbruchspannung zu bestimmen betrachten wir den linearen Fit auf der rechten Seite des Diagramms. Davon müssen wir den Schnittpunkt mit der x-Achse (bzw. Spannungsachse) bestimmen.
+		Dazu setzen wir die Gleichung\\
+		$I=B \cdot U_D + A \stackrel{!}{=} 0$. Daraus ergibt sich dann:
+		$$U_D = \frac{-a}{b}  = \frac{-536,703}{141,987} = \qty{3,77}{\volt}$$
+
+		Aus Origin werden folgende Fehler für $b$ und $a$ gegeben:\\ $\Delta b = \pm 3,670 $ und $\Delta a = \pm 15,329$.
+
+		Durch Fehlerfortpflanzung erlangen wir:
+		\begin{eqnarray}
+			\Delta U =\left|\frac{\partial U_D}{\partial b}\right| \Delta b + \left|\frac{\partial U_D}{\partial a}\right|\Delta a = \left|\frac{a\Delta b}{b^2}\right|  + \left|\frac{\Delta a}{b}\right| \approx 0,21 \mathrm{V}
+		\end{eqnarray}
+
+
+		Die bestimmte Durchschlagsspannung ist also:
+			\[ U_D = \qty{3,77 +- 0,21}{\volt}\]
+
+		Dieser Wert lässt darauf schließen, dass es sich bei der untersuchten Diode um eine Zener-Diode handelt: Diese Dioden werden beim Betrieb in Sperrrichtung nicht zerstört und
+		lassen sich beispielsweise als Spanungsstabilisatoren einsetzen.
+
+		
 	\section{Bipolartransistor}
 		\begin{figure}[h]
 			\centering
@@ -227,7 +277,11 @@
 	\begin{equation}
 		 D = \frac{\Delta U_{BE}}{\Delta U_{CE}} = \underline{-0.298 \pm 0.052 = h_{12}}
 	\end{equation}
+
+	\section{Feldeffektransistor}
+
 	\section{Solarzelle}
+	\fehlt
 
 
 
