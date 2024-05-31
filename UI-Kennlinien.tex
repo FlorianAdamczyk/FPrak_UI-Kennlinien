@@ -97,7 +97,7 @@
 		{ \huge \bfseries \thetitle}\\%%% TITEL HERE
 		\rule{\linewidth}{0.2 mm}\\
 		Versuchstermin Freitag, 17.05.2024 \\
-		~ \\
+		~\\
 		[2.0 cm]
 		
 		
@@ -302,9 +302,112 @@
 
 		\subsection{Dunkelkennlinien}
 
-		Die Gleichung der Dunkelkennlinie ist äquivalent zur Diodengleichung \ref{eq:shockley}. Nach Rechnungen und Fits gleicher Art, wie zuvor im Versuchteil der Dioden erhalten wir folgende Ergebnisse:
+		Die Gleichung der Dunkelkennlinie ist äquivalent zur Diodengleichung \ref{eq:shockley}. Nach Rechnungen und Fits gleicher Art, wie zuvor im Versuchteil der Dioden erhalten wir folgende Ergebnisse aus den Fits:
+
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\textwidth]{Origin/Solar_amorph_dunkel.png}
+			\caption{Kennlinie der amorphen Solarzelle im Dunkeln}
+			\label{fig:SolarAmorphDunkel}
+		\end{figure}
+
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\textwidth]{Origin/Solar_kristallin_dunkel.png}
+			\caption{Kennlinie der kristallinen Solarzelle im Dunkeln}
+			\label{fig:SolarKristallinDunkel}
+		\end{figure}
+
+
+		\begin{samepage}
+		\begin{itemize}
+			\item Amorphe Solarzelle:
+				\begin{itemize}
+					\item Sättigungsstrom $I_\text{S} = \SI{0,01627+-0,00119}{\milli\ampere}$
+					\item Emissionskoeffizient $n = \num{36,742 +- 0,608}$\\
+					\item Die amorphe Solarzelle zeigt starke Abweichungen
+zur idealen Diode auf. Dies ist auch zu erwarten, da in der Zelle keine Fernordnung
+existiert, und sie somit einer idealen Diode recht unähnlich ist.
+				\end{itemize}
+			\item Kristalline Solarzelle:
+				\begin{itemize}
+					\item Sättigungsstrom $I_\text{S} = \SI{0,00981+-0,00203}{\milli\ampere}$
+					\item Emissionskoeffizient $n = \num{2,468 +- 0,0636}$
+					\item Die Ähnlichkeit zur idealen Diode lässt sich
+auf den strukturellen Aufbau der Zelle zurückführen.
+				\end{itemize}
+		\end{itemize}
+		\end{samepage}
+
+	\subsection{Hellkennlinien}
+
+		Aus dem Graph der Hellkennlinie, lassen sich die anderen Werte ablesen:
+		
+		\begin{description}
+		\item[Der Kurzschlussstrom] I$_{SC}$ ist der Achsenabschnitt der vertikalen Achse, der nach Ablesen noch durch die Fläche der Zelle zu teilen ist. Im Fall der amorphen Zelle ist für diesen und andere Werte entweder ein Faktor (Strom) oder Divisor (Spannung) 5 hinzuzufügen, da es sich um fünf Einzelzellen handelt.
+		\item[Die Leerlaufspannung] U$_{OC}$ ist der Achsnabschnitt der horizontalen Achse.
+		\item[Der Füllfaktor] ergibt sich aus dem Minimum der Leistungs-Spannungs-Kurve. Der Punkt dieser Stelle im I-U-Diagramm ist der MPP. Der Füllfaktor ist dann $Ff=\frac{I_{MP}U_{MP}}{I_{SC}U_{OC}}$.
+		\item[Der Wirkungsgrad] ist $\mu=\frac{\text{maximale Leistung}}{\text{Lichtleistung}}$.
+		\end{description}
 		
 		
+		\subsubsection{Kristalline Solarzelle}
+		Die Solarzelle hat einen Durchmesser von \qty{5}{\centi\m} was eine Fläche von $\pi\cdot\num{2,5}^2=\qty{19,63}{\centi\m^2}$ entspricht. Die Werte der Solarzelle sind:
+		
+		\paragraph{Leerlaufspannung}
+		$$
+			U_{OC} = 0,472\, \text{V}
+		$$
+		
+		\paragraph{Kurzschlussstrom}
+		$$\left|\frac{I_{SC}}{A}\right|=\frac{23,9\,\text{mA}}{\qty{19,63}{\centi\square\metre}}\approx\qty{1,22}{\milli\ampere\per\centi\square\metre} $$
+		
+		\paragraph{MPP} Siehe hierzu Graph \ref{fig:sol-mon-p}
+		$$U_{MP}=0,39\,\text{V}$$ $$\vert I_{MP}\vert=24,658\,\text{mA}$$ 
+		Dieser Punkt impliziert eine Leistung von 9,37mV.
+		
+		\paragraph{Füllfaktor}
+		
+		$$    Ff=\frac{I_{MP}U_{MP}}{I_{SC}U_{OC}}=\frac{99,1\,\text{mV}\cdot144,775\,\text{mA}}{390\,\text{mV}\cdot24,658\,\text{mA}}=65,3\%   $$
+		
+		\paragraph{Der Wirkungsgrad} ist über die Leistung der Lampe zu errechnen. Diese strahlt in Summe 150W aus. Die Solarzelle ist 44,7cm von der Lampe entfernt und mit einem Flächeninhalt von 25cm$^2$ ergibt sich so eine Lichtleistung von $150W\cdot\frac{25cm^2}{12554cm^2}=0,300W$
+		
+		Der Wirkungsgrad ist somit:
+		$$
+		\eta=\frac{I_{MP}U_{MP}}{P_{Ges}A}=\frac{9,37\,\text{mW}}{300\,\text{mW}}=3,12\%.
+		$$
+		Die Kennlinie ist in Abbildung \ref{fig:monokrishell} zu sehen.\\
+		
+		
+		
+		
+		\subsubsection{Amorphe Solarzelle}
+		Wir gehen hier davon aus, dass die Fläche von 6cm$^2$ auf alle fünf Zellen bezogen ist.
+		\paragraph{Leerlaufspannung}
+		$$
+			U_{OC} =\frac{3,15\,\text{V}}{5}=630\,\text{mV}
+		$$
+		
+		\paragraph{Kurzschlussstrom}
+		$$ \frac{I_{SC}}{A}=\frac{5\cdot0,781\,\text{mA}}{\frac{6}{5}\,\text{cm}^2} =3,254\,\frac{\text{mA}}{\text{cm}^2 }$$
+		
+		\paragraph{MPP} Siehe hierzu Graph \ref{fig:sol-amo-p}
+		$$
+			U_{MP}=\frac{2,1}{5}\,\text{V}=0,42\,\text{V}\\
+			\vert I_{MP}\vert=3,49\,\text{mA}
+		$$
+		mit einer Leistung von 1,4643mV
+		
+		\paragraph{F"ullfaktor}
+		
+		$$    Ff=\frac{I_{MP}U_{MP}}{I_{SC}U_{OC}}=\frac{0,99\, \text{mW}}{5\cdot0,781\cdot\frac{3,15}{5}\,\text{mW}}=40,2 $$
+		
+		\paragraph{Der Wirkungsgrad} ist erneut über die Leistung der Lampe zu errechnen. Diese strahlt 150W aus. Die Solarzelle ist 41,7cm entfernt und mit einem Flächeninhalt von in Summe 6cm$^2$ ergibt sich so eine Lichtleistung auf allen fünf Solarzellen von $150W\cdot\frac{6cm^2}{262,01cm^2}=3,43\,\text{W}§ $
+		
+		
+
+		
+
 
 		
 		

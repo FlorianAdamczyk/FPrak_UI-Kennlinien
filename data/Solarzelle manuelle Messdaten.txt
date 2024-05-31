@@ -9,3 +9,4 @@ U leerlauf = 3.076V
 
 U leelauf Kristallin bel. = 0.472 V
 I kurschluss = 23.9 mA
+
