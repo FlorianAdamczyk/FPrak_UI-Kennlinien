@@ -370,16 +370,14 @@ auf den strukturellen Aufbau der Zelle zurückführen.
 		Die Solarzelle hat einen Durchmesser von \qty{5}{\centi\m} was eine Fläche von $\pi\cdot\num{2,5}^2=\qty{19,63}{\centi\m^2}$ entspricht. Die Werte der Solarzelle sind:
 		
 		\paragraph{Leerlaufspannung}
-		$$
-			U_{OC} = 0,472\, \text{V}
-		$$
+		\[	U_{OC} = \qty{0,472}{\volt} \]
 		
 		\paragraph{Kurzschlussstrom}
-		$$\left|\frac{I_{SC}}{A}\right|=\frac{23,9\,\text{mA}}{\qty{19,63}{\centi\square\metre}}\approx\qty{1,22}{\milli\ampere\per\centi\square\metre} $$
+		$$\left|\frac{I_{SC}}{A}\right|=\frac{\qty{23,9}{\milli\ampere}}{\qty{19.63}{\centi\square\metre}}\approx\qty{1.22}{\milli\ampere\per\centi\square\metre} $$
 		
 		\paragraph{MPP} Siehe hierzu Graph \ref{fig:Leistkrishell}
-		$$U_{MP}=0,36\,\text{V}$$ $$\vert I_{MP}\vert=20,264\,\text{mA}$$ 
-		Dieser Punkt impliziert eine Leistung von 7,295mV.
+		$$U_{MP}=\qty{0,36}{\volt}$$ $$\vert I_{MP}\vert=\qty{200,264}{\milli\ampere}$$ 
+		Dieser Punkt impliziert eine Leistung von \qty{7,295}{\milli\watt}.
 
 		\begin{figure}
 			\centering
@@ -394,39 +392,63 @@ auf den strukturellen Aufbau der Zelle zurückführen.
 		
 		\paragraph{Der Wirkungsgrad} ist über die Leistung der Lampe zu errechnen. Auf einen Messkopf mit einem Durchmesser von $\SI{1}{\centi\m} = \qty{0,01}{\m}$ strahlt die Lampe am Ort der Messung (der Solarzellen und des Messkopfs) eine Leistung von $P = \SI{9,2}{\milli\watt} $ ab. Das entspricht einer Leistungsdichte von $\frac{P}{A} = \frac{\qty{9,2}{\milli\watt}}{\pi\cdot(\qty{0,005}{\m})^2} = \frac{\qty{9,2}{\milli\watt}}{\qty{7,854e-5}{\square\metre}} = \qty{117,138}{\watt\per\m} $\\
 		Auf Die Solarzelle fällt also eine Leistung von:
-		\[P = \qty{117,138}{\watt\per\m} \cdot \qty{19,63}{\centi\m^2} = \qty{22,99}{\watt}\]
+		\[P_ {belecht} = \qty{117,138}{\watt\per\m} \cdot \qty{19,63}{\centi\m^2} = \qty{22,99}{\watt}\]
 		
 		Der Wirkungsgrad ist somit:
 		$$
-		\eta=\frac{I_{MP}U_{MP}}{P_{Ges}A}=\frac{9,37\,\text{mW}}{300\,\text{mW}}=3,12\%.
+		\eta=\frac{P_{MMP}}{P_{beleucht}} = \frac{\qty{7,295}{\milli\watt}}{\qty{22,99}{\watt}} = \num{3,173e-4} \approx \qty{0,03}{\percent}.
 		$$
-		Die Kennlinie ist in Abbildung \ref{fig:monokrishell} zu sehen.\\
+		Die Kennlinie der Solarzelle ist in Abbildung \ref{fig:SolarKristallinHell} zu sehen.\\
 		
-		
-		
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\textwidth]{Origin/SolarKristallHell.png}
+			\caption{Kennlinie der kristallinen Solarzelle im Licht}
+			\label{fig:SolarKristallinHell}
+		\end{figure}
+				
 		
 		\subsubsection{Amorphe Solarzelle}
-		Wir gehen hier davon aus, dass die Fläche von 6cm$^2$ auf alle fünf Zellen bezogen ist.
+		Die Solarzelle hat die Maße: \qty{2,2}{\centi\m}x\qty{2,8}{\centi\m} was einer Fläche von \qty{6,16}{\centi\square\metre} entspricht. Die Werte der Solarzelle sind:
+		
 		\paragraph{Leerlaufspannung}
-		$$
-			U_{OC} =\frac{3,15\,\text{V}}{5}=630\,\text{mV}
-		$$
+		\[	U_{OC} = \frac{\qty{3,076}{\volt}}{5} = \qty{0,6352}{\volt} \]
+		Man beachte, dass man hier durch die Anzahl der verwendeten Einzelzellen teilen muss,
 		
 		\paragraph{Kurzschlussstrom}
-		$$ \frac{I_{SC}}{A}=\frac{5\cdot0,781\,\text{mA}}{\frac{6}{5}\,\text{cm}^2} =3,254\,\frac{\text{mA}}{\text{cm}^2 }$$
+		$$\left|\frac{I_{SC}}{A}\right|=\frac{\qty{735}{\micro\ampere}}{\qty{6,16}{\centi\square\metre}}\cdot 5  \approx\qty{0,597}{\milli\ampere\per\centi\square\metre}$$
 		
-		\paragraph{MPP} Siehe hierzu Graph \ref{fig:sol-amo-p}
+		\paragraph{MPP} Siehe hierzu Graph \ref{fig:Leistamorphhell}
+		$$U_{MP}=\qty{0,36}{\volt}$$ $$\vert I_{MP}\vert=\qty{200,264}{\milli\ampere}$$ 
+		Dieser Punkt impliziert eine Leistung von \qty{7,295}{\milli\watt}.
+		
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\textwidth]{Origin/LeistungAmorph.png}
+			\caption{Leistungskennlinie der amorphen Solarzelle im Licht}
+			\label{fig:Leistamorphhell}
+		\end{figure}
+		
+		\paragraph{Füllfaktor}
+		
+		$$    Ff=\frac{I_{MP}U_{MP}}{I_{SC}U_{OC}}= \frac{\qty{20,264}{\milli\ampere}\cdot \qty{0,36}{\volt}}{\qty{23,9}{\milli\ampere} \cdot \qty{0,472}{\volt}} = \num{0,646678} \approx \qty{64,67}{\percent}  $$
+		
+		\paragraph{Der Wirkungsgrad} ist über die Leistung der Lampe zu errechnen. Auf einen Messkopf mit einem Durchmesser von $\SI{1}{\centi\m} = \qty{0,01}{\m}$ strahlt die Lampe am Ort der Messung (der Solarzellen und des Messkopfs) eine Leistung von $P = \SI{9,2}{\milli\watt} $ ab. Das entspricht einer Leistungsdichte von $\frac{P}{A} = \frac{\qty{9,2}{\milli\watt}}{\pi\cdot(\qty{0,005}{\m})^2} = \frac{\qty{9,2}{\milli\watt}}{\qty{7,854e-5}{\square\metre}} = \qty{117,138}{\watt\per\m} $\\
+		Auf Die Solarzelle fällt also eine Leistung von:
+		\[P_ {belecht} = \qty{117,138}{\watt\per\m} \cdot \qty{19,63}{\centi\m^2} = \qty{22,99}{\watt}\]
+		
+		Der Wirkungsgrad ist somit:
 		$$
-			U_{MP}=\frac{2,1}{5}\,\text{V}=0,42\,\text{V}\\
-			\vert I_{MP}\vert=3,49\,\text{mA}
+		\eta=\frac{P_{MMP}}{P_{beleucht}} = \frac{\qty{7,295}{\milli\watt}}{\qty{22,99}{\watt}} = \num{3,173e-4} \approx \qty{0,03}{\percent}.
 		$$
-		mit einer Leistung von 1,4643mV
+		Die Kennlinie der Solarzelle ist in Abbildung \ref{fig:SolarKristallinHell} zu sehen.\\
 		
-		\paragraph{F"ullfaktor}
-		
-		$$    Ff=\frac{I_{MP}U_{MP}}{I_{SC}U_{OC}}=\frac{0,99\, \text{mW}}{5\cdot0,781\cdot\frac{3,15}{5}\,\text{mW}}=40,2 $$
-		
-		\paragraph{Der Wirkungsgrad} ist erneut über die Leistung der Lampe zu errechnen. Diese strahlt 150W aus. Die Solarzelle ist 41,7cm entfernt und mit einem Flächeninhalt von in Summe 6cm$^2$ ergibt sich so eine Lichtleistung auf allen fünf Solarzellen von $150W\cdot\frac{6cm^2}{262,01cm^2}=3,43\,\text{W}§ $
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\textwidth]{Origin/SolarKristallHell.png}
+			\caption{Kennlinie der kristallinen Solarzelle im Licht}
+			\label{fig:SolarKristallinHell}
+		\end{figure}
 		
 		
 
