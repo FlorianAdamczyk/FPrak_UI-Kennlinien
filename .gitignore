@@ -18,5 +18,7 @@ UI-Kennlinien.pdf
 .Rproj.user
 .Rproj
 
+# origin zeug
+*.opju
 
 \end{verbatim}
