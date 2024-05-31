@@ -1,11 +1,11 @@
-P = 9,2 mW
-A_messkopf = 1cm = 0,01m Durchmesser (rund!)
+P = 9.2 mW
+A_messkopf = 1cm = 0.01m Durchmesser (rund!)
 
 A_kristallin  = 5cm Durchmesser
-A_amorph = 2,2cm x 2,8cm
+A_amorph = 2.2cm x 2.8cm
 
 I kurzschluss Solar amorph beleuchtet = 735 qA
-U leerlauf = 3,076V
+U leerlauf = 3.076V
 
-U leelauf Kristallin bel. = 0,472 V
-I kurschluss = 23,9 mA
+U leelauf Kristallin bel. = 0.472 V
+I kurschluss = 23.9 mA
