@@ -49,10 +49,10 @@
 
 \usepackage{siunitx}
 \sisetup{
-	separate-uncertainty = true,
+	%separate-uncertainty = true,
 	%per-mode = fraction,
-	%per-mode = symbol
-	%locale = DE
+	%per-mode = symbol,
+	locale = DE,
 }
 \DeclareSIUnit\bar{bar}
 \DeclareSIUnit\atomicmassunit{u}
@@ -143,17 +143,17 @@
 \chapter*{Einleitung}
 	\addcontentsline{toc}{chapter}{Einleitung}
 	
-	In der Welt der Elektronik sind die Charakteristiken von Halbleiterbauteilen von entscheidender Bedeutung. Dieser Versuch zielt darauf ab, die typischen Kennlinien einer Diode, eines Bipolartransistors und eines Feldeffekttransistors zu erfassen, um ihre spezifischen Eigenschaften und Verhaltensweisen zu verstehen. Zusätzlich liegt ein Fokus auf der Untersuchung von Solarzellen, bei denen durch die Aufnahme von Dunkel- und Hell-Kennlinien wichtige Kenngrößen ermittelt werden sollen. Die Ergebnisse sollen nicht nur Aufschluss über den Typ der Dioden und Transistoren geben, sondern auch über die Leistungsfähigkeit der Solarzellen, wie etwa den Füllfaktor und die relative Effizienz.
+	In der Welt der Elektronik sind die Charakteristiken von Halbleiterbauteilen von entscheidender Bedeutung. Dieser Versuch zielt darauf ab, die typischen Kennlinien einer Diode, eines Bipolartransistors und eines Feldeffekttransistors zu erfassen, um ihre spezifischen Eigenschaften und Verhaltensweisen zu verstehen. Zusätzlich liegt ein Fokus auf der Untersuchung von Solarzellen, bei denen durch die Aufnahme von Dunkel- und Hell-Kennlinien wichtige Kenngrößen ermittelt werden sollen. Die Ergebnisse sollen nicht nur Aufschluss über den Typ der Dioden und Transistoren geben, sondern auch über die Leistungsfähigkeit der Solarzellen, wie etwa den Füllfaktor und die Effizienz.
 
 
 
 \chapter{Versuchsaufbau und Durchführung}
-	In den Versuchen werden die Kennlinien der Halbleiterbauteile aufgenommen. Dazu werden die fertigen Schaltungen mit dem Messgerät farblich passend verbunden und die Kennlinien mit einem LABVIEW-Programm aufgenommen und auf einen USB-Stick abgespeichert. So können die Daten später ausgewertet werden.\\
+	In den Versuchen werden die Kennlinien der Halbleiterbauteile aufgenommen. Dazu werden die zu vermessenden Bauteile mit dem Messgerät farblich passend verbunden und die Kennlinien mit einem LABVIEW-Programm aufgenommen und auf einen USB-Stick abgespeichert. So können die Daten später ausgewertet werden.\\
 
 	\begin{itemize}
 	\item[-] Im ersten Versuchsteil wird die Kennlinie einer Diode aufgenommen. Dazu wird die Diode in Durchlassrichtung und in Sperrrichtung betrieben.
 	\item[-] Im zweiten Versuchsteil wird die Kennlinie eines Bipolartransistors aufgenommen. Dazu wird der Transistor in der Emitterschaltung betrieben und die vier Kennlinienfelder aufgenommen.
-	\item[-] Im dritten Versuchsteil wird die Kennlinie eines Feldeffekttransistors aufgenommen. Dazu wird der Transistor in der Source-Schaltung betrieben und die vier Kennlinienfelder aufgenommen.
+	\item[-] Im dritten Versuchsteil wird die Kennlinie eines Feldeffekttransistors aufgenommen. Dazu wird der Transistor in der Source-Schaltung betrieben.
 	\item[-] Im vierten Versuchsteil werden zwei Solarzellen untersucht. Dazu wird die Kennlinie der Solarzellen im Dunkeln und im Licht aufgenommen und die jeweiligen Kennlinien abgespeichert.
 	\end{itemize}
 
@@ -165,18 +165,17 @@
 		I_\text{D} = I_\text{S}(T) \, \left(\mathrm e^\frac{U}{n\,U_\text{T}} - 1 \right)
 		\end{eqnarray}
 		
-		Dabei bezeichnet $I_\text{S}(T)$ den Sättigungssperrstrom welcher typischerweise zwischen \qty{10e-12}{\ampere} und \qty{10e-6}{\ampere} liegt, $ U_\text{T}= \frac{k \cdot T} q$ die Tem\-pe\-ra\-tur\-span\-nung und $n$ den Idealitätsfaktor oder Emissionskoeffizient. Dieser soll auch bestimmt werden und liegt typischerweise zwischen 1 und 2.\\ 
+		Dabei bezeichnet $I_\text{S}(T)$ den Sättigungssperrstrom welcher typischerweise zwischen $10^{-12}\,\text{A}$ und $10^{-6}\,\text{A}$ liegt, $ U_\text{T}= \frac{k \cdot T} q$ die Tem\-pe\-ra\-tur\-span\-nung und $n$ den Idealitätsfaktor oder Emissionskoeffizient. Dieser soll auch bestimmt werden und liegt typischerweise zwischen 1 und 2.\\ 
 		In unserem Fall (bei Raumtemperatur von \qty{25}{\celsius}) beträgt die Temperaturspannung  $U_T = \qty{25}{\milli\volt}$.
 		
 		\begin{figure}
 			\centering
 			\includegraphics[width=0.8\textwidth]{Origin/Graph1.png}
-			\caption{Kennlinie der Diode}
-			\label{fig:Diodenkennlinie}
+			\caption{Kennlinie der Diode}\label{fig:Diodenkennlinie}
 		\end{figure}
 
-		In Abbildung \ref{fig:Diodenkennlinie} ist die Kennlinie der Diode dargestellt. \\ 
-		Der rechte Teil der Kennlinie ist mit der Gleichung \ref{eq:shockley} gefittet worden, während der linke Teil nicht mit dieser Gleichung beschrieben werden kann und daher linear gefittet ist. \\
+		In Abbildung~\ref{fig:Diodenkennlinie} ist die Kennlinie der Diode dargestellt. \\ 
+		Der rechte Teil der Kennlinie ist mit der Gleichung~\ref{eq:shockley} gefittet worden, während der linke Teil nicht mit dieser Gleichung beschrieben werden kann und daher linear gefittet ist. \\
 
 		Im Schockley-Fit kann man den Sättigungssperrstrom $I_\text{S}$ und den Idealitätsfaktor $n$ bestimmen. Daraus ergibt sich:
 		\begin{itemize}
@@ -187,7 +186,7 @@
 		Um die Durchbruchspannung zu bestimmen, betrachten wir den linearen Fit auf der rechten Seite des Diagramms. Davon müssen wir den Schnittpunkt mit der x-Achse (bzw. Spannungsachse) bestimmen.
 		Dazu setzen wir die Gleichung\\
 		$I=B \cdot U_D + A \stackrel{!}{=} 0$. Hieraus ergibt sich dann:
-		$$U_D = \frac{-a}{b}  = \frac{-536.703}{141.987} = \qty{3.77}{\volt}$$
+		\[U_D = \frac{-a}{b}  = \frac{\num{-536.703}}{\num{141.987}} = \qty{3.77}{\volt}\]
 
 		Aus Origin werden folgende Fehler für $b$ und $a$ gegeben:\\ $\Delta b = \pm 3,670 $ und $\Delta a = \pm 15,329$.
 
@@ -208,18 +207,16 @@
 		\begin{figure}[ht]
 			\centering
 			\includegraphics[width=7.5 cm]{plots/transistor_schaltung.png}
-			\caption{Schaltskizze eines pnp-Transistors}
-			\label{img:pnpSchaltung}
+			\caption{Schaltskizze eines pnp-Transistors}\label{img:pnpSchaltung}
 		\end{figure} 
-		Im folgenden Versuchsteil werden die typischen Kennlinienfelder eines Bipolartransistors vermessen. Es handelt sich um einen pnp-Transistor des Typs BC550. Ein Schaltplan solch eines Transistors ist in Abbildung \ref{img:pnpSchaltung} dargestellt. Dabei sind die wichtigsten Größen eingetragen, dazu zählen der Kollektor- und Basisstrom $I_C$ und $I_B$, zudem die jeweiligen Spannungen zwischen Kollektor, Emitter und Basis. 
+		Im folgenden Versuchsteil werden die typischen Kennlinienfelder eines Bipolartransistors vermessen. Es handelt sich um einen pnp-Transistor des Typs BC550. Ein Schaltplan solch eines Transistors ist in Abbildung~\ref{img:pnpSchaltung} dargestellt. Dabei sind die wichtigsten Größen eingetragen, dazu zählen der Kollektor- und Basisstrom $I_C$ und $I_B$, zudem die jeweiligen Spannungen zwischen Kollektor, Emitter und Basis. 
 		\subsection{Vierpolarparameter}
 				\begin{figure}[h]
 			\centering
 			\includegraphics[width=7.5 cm]{plots/Vierpol.pdf}
-			\caption{allgemeiner Vierpol}
-			\label{img:Vierpol}
+			\caption{allgemeiner Vierpol}\label{img:Vierpol}
 		\end{figure} 
-		Jedes elektronische Bauteil kann als Vierpol dargestellt werden, in Abbildung \ref{img:Vierpol} ist der Schaltplan eines allgemeinen Vierpols angegeben. Das Modell beschreibt ein elektrisches Netzwerk oder Bauteil durch zwei Ein- und Ausgänge, dabei wird ein lineares Gleichungssystem mit einer 2x2 Matrix verwendet.\\
+		Jedes elektronische Bauteil kann als Vierpol dargestellt werden, in Abbildung~\ref{img:Vierpol} ist der Schaltplan eines allgemeinen Vierpols angegeben. Das Modell beschreibt ein elektrisches Netzwerk oder Bauteil durch zwei Ein- und Ausgänge, dabei wird ein lineares Gleichungssystem mit einer $2\times2$ Matrix verwendet.\\
 		Transistoren sind aktive Bauelemente und nicht linear, deshalb müssen sie in einem Punkt linearisiert werden, damit die Beschreibung des Vierpols angewandt werden kann. Dieser Punkt heißt Arbeitspunkt des Transistors. Für Transistoren in der Emittersschaltung wird häufig die folgende Hybrid-Darstellung verwendet:
 		\begin{equation}
 			\begin{pmatrix}
@@ -246,10 +243,9 @@
 	\begin{figure}[h]
 			\centering
 			\includegraphics[width=\textwidth]{plots/Vierquadrantenkennlinienfeld.pdf}
-			\caption{Vierquadrantenkennlinienfeld des Bipolartransistors}
-			\label{img:Vierquadranten}
+			\caption{Vierquadrantenkennlinienfeld des Bipolartransistors}\label{img:Vierquadranten}
 	\end{figure}
-	In Abbildung \ref{img:Vierquadranten} sind die aufgenommenen, typischen vier Kennlinien des Transistors aufgetragen. In Rot ist jeweils der gewählte Arbeitspunkt eingetragen, dieser wird bei folgenden Werten gewählt:
+	In Abbildung~\ref{img:Vierquadranten} sind die aufgenommenen, typischen vier Kennlinien des Transistors aufgetragen. In Rot ist jeweils der gewählte Arbeitspunkt eingetragen, dieser wird bei folgenden Werten gewählt:
 	\begin{equation}
 		I_B = \SI{0.2}{\milli \ampere} \qquad U_{CE} = \SI{2}{\volt}
 	\end{equation}
@@ -258,11 +254,11 @@
 	\begin{equation}
 		r_{BE} = \frac{\Delta U_{BE}}{\Delta I_{B}}
 	\end{equation}
-	Im obigen Kennlinienfeld wurde die Gerade in einem Bereich von \SI{0.05}{\milli \ampere} um den Arbeitspunkt für $I_B$ zu $U_{BE}$ gefittet. Der differentielle Eingangswiderstand ist damit der Kehrwert des Fitparameters $a$, zudem werden die \si{\milli \ampere} in \si{\ampere} umgerechnet, um die Einheit \si{\ohm} zu erhalten:
+	Im obigen Kennlinienfeld wurde die Gerade in einem Bereich von \SI{0.05}{\milli\ampere} um den Arbeitspunkt für $I_B$ zu $U_{BE}$ gefittet. Der differentielle Eingangswiderstand ist damit der Kehrwert des Fitparameters $a$, zudem werden die \unit{\milli \ampere} in \unit{\ampere} umgerechnet, um die Einheit \unit{\ohm} zu erhalten:
 	\begin{equation}
-		r_{BE} = \frac{1}{a} = \underline{\SI{214.041(20.525)}{\ohm} = h_{11}}
+		r_{BE} = \frac{1}{a} = \underline{\SI{214(20)}{\ohm} = h_{11}}
 	\end{equation}
-	Der Vierpolparameter $h_{22}$ kann im Ausgangskennlinienfeld über den differentiellen Transistor-Ausgangswiderstand bestimmt werden. Der Widerstand ist die Steigung des Fits, erneut werden die \si{\milli \ampere} in \si{\ampere} umgerechnet:
+	Der Vierpolparameter $h_{22}$ kann im Ausgangskennlinienfeld über den differentiellen Transistor-Ausgangswiderstand bestimmt werden. Der Widerstand ist die Steigung des Fits, erneut werden die \unit{\milli\ampere} in \unit{\ampere} umgerechnet:
 	\begin{equation}
 		r_{CE} =  \frac{\Delta U_{CE}}{\Delta I_{C}} = \SI{4009(31)}{\ohm}
 	\end{equation}
@@ -272,28 +268,26 @@
 	\end{equation}
 	Aus dem Stromsteuerungskennlinienfeld $I_C$-$I_B$ kann der differentielle Stromverstärkungsfaktor $\beta$ bestimmt werden. Dieser ist entspricht dem Anstieg der gefitteten Geraden und gibt in gewisser Weise an, um welchen Faktor der Transistor den Kollektorstrom verstärkt. Dieser Faktor ist auch der Vierpolparameter $h_{21}$:
 	\begin{equation}
-		\beta =  \frac{\Delta I_{C}}{\Delta I_{B}} = \underline{207.5 \pm 4.2 = h_{21}}
+		\beta =  \frac{\Delta I_{C}}{\Delta I_{B}} = \underline{\num{207.5} \pm \num{4.2} = h_{21}}
 	\end{equation}
-	Der letzte Vierpolparameter ist im Rückwirkungskennlinienfeld der differentielle Rückwirkungsfaktor $D$. Dieser gibt an, wie stark Änderungen der Ausgangsspannung $U_{CE}$ auf die Eingangsspannung $U_BE$ zurückwirken. Solche sind unerwünscht und sollen möglichst klein sein. 
+	Der letzte Vierpolparameter ist im Rückwirkungskennlinienfeld der differentielle Rückwirkungsfaktor $D$. Dieser gibt an, wie stark Änderungen der Ausgangsspannung $U_{CE}$ auf die Eingangsspannung $U_{BE}$ zurückwirken. Solche sind unerwünscht und sollen möglichst klein sein. 
 	\begin{equation}
-		 D = \frac{\Delta U_{BE}}{\Delta U_{CE}} = \underline{-0.298 \pm 0.052 = h_{12}}
+		 D = \frac{\Delta U_{BE}}{\Delta U_{CE}} = \underline{-\num{0.298} \pm \num{0.052} = h_{12}}
 	\end{equation}
 
 	\section{Feldeffekttransistor}
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=\textwidth]{plots/MosFET.pdf}
-		\caption{Grundlegender Aufbau eines Metall-Oxid-Feldeffekttransistors}
-		\label{img:MosFET}
+		\caption{Grundlegender Aufbau eines Metall-Oxid-Feldeffekttransistors}~\label{img:MosFET}
 	\end{figure}	
-	Die Abbildung \ref{img:MosFET} zeigt den grundlegenden Aufbau eines MOS-FET, die drei Anschlüsse heißen Source, Drain und Gate. Wenn zwischen Gate und Source eine Spannung angelegt wird, bildet sich eine leitende Brücke zwischen Source und Drain aus. Für die Steuerung von $U_{GS}$ ist fast kein Strom notwendig, daher ist die Steuerung eines MOS-FET's quasi leistungslos möglich.\\
+	Die Abbildung~\ref{img:MosFET} zeigt den grundlegenden Aufbau eines MOS-FET, die drei Anschlüsse heißen Source, Drain und Gate. Wenn zwischen Gate und Source eine Spannung angelegt wird, bildet sich eine leitende Brücke zwischen Source und Drain aus. Für die Steuerung von $U_{GS}$ ist fast kein Strom notwendig, daher ist die Steuerung eines MOS-FET's quasi leistungslos möglich.\\
 	\begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{plots/FET.pdf}
-	\caption{Kennlinienfelder des Feldeffekttransistors}
-	\label{img:FET}
+	\caption{Kennlinienfelder des Feldeffekttransistors}~\label{img:FET}
 	\end{figure}
-	In Abbildung \ref{img:FET} sind die das $I_D$-$U_{DS}$ und $I_D$-$U_{GS}$ Kennlinienfeld, des Feldeffekttransistors geplottet. Das erstere wird auch Ausgangskennlinienfeld genannt; es wurde für verschiedene Steuerspannungen $U_GS$ aufgezeichnet. Ab der Mindest-Gatespannung von etwas unter \SI{1}{\volt}, steigen die Kennlinien nur geringfügig an.\\
+	In Abbildung~\ref{img:FET} sind die das $I_D$-$U_{DS}$ und $I_D$-$U_{GS}$ Kennlinienfeld, des Feldeffekttransistors geplottet. Das erstere wird auch Ausgangskennlinienfeld genannt; es wurde für verschiedene Steuerspannungen $U_{GS}$ aufgezeichnet. Ab der Mindest-Gatespannung von etwas unter \SI{1}{\volt}, steigen die Kennlinien nur geringfügig an.\\
 	Im linken, dem Eingangkennlinienfeld wird deutlich, dass es sich tatsächlich um einen  Metall-Oxid-Feldeffekttransistors handelt, da der Strom $I_D$ bei einer Gate-Source-Spannung unter etwa \SI{1.4}{\volt} gleich null ist, der Transistor ist demnach selbstsperrend, danach steigt der Strom sprungartig an. Das $I_D$-$U_{GS}$ Kennlinienfeld zeigt die Steuerungseigenschaft des MOS-FET's.
 	\section{Solarzelle}
 		
@@ -307,29 +301,27 @@
 		\item[Die Leerlaufspannung] ist als die ohne Stromfluss durch die Solarzelle erzeugte Potentialdifferenz definiert. $\rightarrow I(U_{OC})\stackrel{!}{=}0$ Wenn man dies in Gleichung \ref{eq:photo1} einsetzt, ergibt sich:
 		$$U_{OC}=\frac{kT}{e}\ln\frac{I_P}{I_S}$$
 		\item[Der Kurzschlussstrom] ist der Strom, der ohne anliegende Spannung fließt.
-		$$I_{SC}=I(0)=I_S\left( e^{\frac{e\cdot0}{nkT}} -1 \right) - I_P=I_S\left(1-1 \right) - I_P=-I_P.$$
+		\[I_{SC}=I(0)=I_S\left( e^{\frac{e\cdot0}{nkT}} -1 \right) - I_P=I_S\left(1-1 \right) - I_P=-I_P\]
 		Der negierte Photostrom entspricht also dem Kurzschlussstrom
 		\item[Der Maximum-Power-Point] ist der Punkt der maximalen Leistung $P_{Max}$ einer Solarzelle. Um ihn zu erreichen, gilt es $P=I\cdot U$ zu maximieren.
 		\item[Der Füllfaktor] $FF=\frac{P_{MPP}}{I_{SC}\cdot U_{OC}}$ ist ein Gütekriterium. Er sollte nahe 1 liegen.
-		\item[Der Wirkungsgrad] ist der Quotient aus maximaler Leistung und durch die Bestrahlung gegebenen:$$\eta=\frac{P_{MPP}}{P_{Ein}}$$
+		\item[Der Wirkungsgrad] ist der Quotient aus maximaler Leistung und durch die Bestrahlung gegebenen:\[\eta=\frac{P_{MPP}}{P_{Ein}}\]
 		\end{description}
 
 		\subsection{Dunkelkennlinien}
 
-		Die Gleichung der Dunkelkennlinie ist äquivalent zur Diodengleichung \ref{eq:shockley}. Nach Rechnungen und Fits gleicher Art, wie zuvor im Versuchsteil der Dioden, erhalten wir folgende Ergebnisse aus den Fits:
+		Die Gleichung der Dunkelkennlinie ist äquivalent zur Diodengleichung~\ref{eq:shockley}. Nach Rechnungen und Fits gleicher Art, wie zuvor im Versuchsteil der Dioden, erhalten wir folgende Ergebnisse aus den Fits:
 
 		\begin{figure}
 			\centering
 			\includegraphics[width=0.8\textwidth]{Origin/Solar_amorph_dunkel.png}
-			\caption{Kennlinie der amorphen Solarzelle im Dunkeln}
-			\label{fig:SolarAmorphDunkel}
+			\caption{Kennlinie der amorphen Solarzelle im Dunkeln}~\label{fig:SolarAmorphDunkel}
 		\end{figure}
 
 		\begin{figure}
 			\centering
 			\includegraphics[width=0.8\textwidth]{Origin/Solar_kristallin_dunkel.png}
-			\caption{Kennlinie der kristallinen Solarzelle im Dunkeln}
-			\label{fig:SolarKristallinDunkel}
+			\caption{Kennlinie der kristallinen Solarzelle im Dunkeln}~\label{fig:SolarKristallinDunkel}
 		\end{figure}
 
 
@@ -360,8 +352,8 @@ auf den strukturellen Aufbau der Zelle zurückführen.
 		\begin{description}
 		\item[Der Kurzschlussstrom] I$_{SC}$ ist der Achsenabschnitt der vertikalen Achse, der nach Ablesen noch durch die Fläche der Zelle zu teilen ist. Im Fall der amorphen Zelle ist für diesen und andere Werte entweder ein Faktor (Strom) oder Divisor (Spannung) 5 hinzuzufügen, da es sich um fünf Einzelzellen handelt.
 		\item[Die Leerlaufspannung] U$_{OC}$ ist der Achsenabschnitt der horizontalen Achse.
-		\item[Der Füllfaktor] ergibt sich aus dem Minimum der Leistungs-Spannungs-Kurve. Der Punkt dieser Stelle im I-U-Diagramm ist der MPP. Der Füllfaktor ist dann $Ff=\frac{I_{MP}U_{MP}}{I_{SC}U_{OC}}$.
-		\item[Der Wirkungsgrad] ist $\mu=\frac{\text{maximale Leistung}}{\text{Lichtleistung}}$.
+		\item[Der Füllfaktor] ergibt sich aus dem Minimum der Leistungs-Spannungs-Kurve. Der Punkt dieser Stelle im I-U-Diagramm ist der MPP.\@ Der Füllfaktor ist dann $FF=\frac{I_{MP}U_{MP}}{I_{SC}U_{OC}}$.
+		\item[Der Wirkungsgrad] ist $\eta=\frac{\text{maximale Leistung}}{\text{Lichtleistung}}$.
 		\end{description}
 		
 		
@@ -372,31 +364,30 @@ auf den strukturellen Aufbau der Zelle zurückführen.
 		\[	U_{OC} = \qty{0,472}{\volt} \]
 		
 		\paragraph{Kurzschlussstrom}
-		$$\left|\frac{I_{SC}}{A}\right|=\frac{\qty{23,9}{\milli\ampere}}{\qty{19.63}{\centi\square\metre}}\approx\qty{1.22}{\milli\ampere\per\centi\square\metre} $$
+		\[\left|\frac{I_{SC}}{A}\right|=\frac{\qty{23,9}{\milli\ampere}}{\qty{19.63}{\centi\square\metre}}\approx\qty{1.22}{\milli\ampere\per\centi\square\metre} \]
 		
 		\paragraph{MPP} Siehe hierzu Graph \ref{fig:Leistkrishell}
-		$$U_{MP}=\qty{0,36}{\volt}$$ $$\vert I_{MP}\vert=\qty{20,264}{\milli\ampere}$$ 
+		\[U_{MP}=\qty{0,36}{\volt}$$ $$\vert I_{MP}\vert=\qty{20,264}{\milli\ampere}\]
 		dieser Punkt impliziert eine Leistung von \qty{7,295}{\milli\watt}.
 
 		\begin{figure}
 			\centering
 			\includegraphics[width=0.8\textwidth]{Origin/LeistungKristall.png}
-			\caption{Leistungskennlinie der kristallinen Solarzelle im Licht}
-			\label{fig:Leistkrishell}
+			\caption{Leistungskennlinie der kristallinen Solarzelle im Licht}~\label{fig:Leistkrishell}
 		\end{figure}
 		
 		\paragraph{Füllfaktor}
 		
-		$$    Ff=\frac{I_{MP}U_{MP}}{I_{SC}U_{OC}}= \frac{\qty{20,264}{\milli\ampere}\cdot \qty{0,36}{\volt}}{\qty{23,9}{\milli\ampere} \cdot \qty{0,472}{\volt}} = \num{0,646678} \approx \qty{64,67}{\percent}  $$
+		\[FF=\frac{I_{MP}U_{MP}}{I_{SC}U_{OC}}= \frac{\qty{20,264}{\milli\ampere}\cdot \qty{0,36}{\volt}}{\qty{23,9}{\milli\ampere} \cdot \qty{0,472}{\volt}} = \num{0,646678} \approx \qty{64,67}{\percent}\]
 		
-		\paragraph{Der Wirkungsgrad} ist über die Leistung der Lampe zu errechnen. Auf einen Messkopf mit einem Durchmesser von $\SI{1}{\centi\m} = \qty{0,01}{\m}$ strahlt die Lampe am Ort der Messung (der Solarzellen und des Messkopfs) eine Leistung von $P = \SI{9,2}{\milli\watt} $ ab. Das entspricht einer Leistungsdichte von $\frac{P}{A} = \frac{\qty{9,2}{\milli\watt}}{\pi\cdot(\qty{0,005}{\m})^2} = \frac{\qty{9,2}{\milli\watt}}{\qty{7,854e-5}{\square\metre}} = \qty{117,138}{\watt\per\m} $\\
+		\paragraph{Der Wirkungsgrad} ist über die Leistung der Lampe zu errechnen. Auf einen Messkopf mit einem Durchmesser von $\SI{1}{\centi\m} = \qty{0,01}{\m}$ strahlt die Lampe am Ort der Messung (der Solarzellen und des Messkopfs) eine Leistung von $P = \SI{9,2}{\milli\watt} $ ab. Das entspricht einer Leistungsdichte von $\frac{P}{A} = \frac{\qty{9,2}{\milli\watt}}{\pi\cdot(\qty{0,005}{\m})^2} = \frac{\qty{9,2}{\milli\watt}}{\qty{7,854e-5}{\square\metre}} = \qty{117,138}{\watt\per\square\m} $\\
 		Auf die Solarzelle fällt also eine Leistung von:
-		\[P_ {belecht} = \qty{117,138}{\watt\per\m} \cdot \qty{19,63}{\centi\m^2} = \qty{22,99}{\watt}\]
+		\[P_ {beleucht} = \qty{117,138}{\watt\per\m\squared} \cdot \qty{19,63e-4}{\m^2} = \qty{0,2299}{\watt}\]
 		
 		Der Wirkungsgrad ist somit:
-		$$
-		\eta=\frac{P_{MMP}}{P_{beleucht}} = \frac{\qty{7,295}{\milli\watt}}{\qty{22,99}{\watt}} = \num{3,173e-4} \approx \qty{0,03}{\percent}.
-		$$
+		\[
+		\eta=\frac{P_{MMP}}{P_{beleucht}} = \frac{\qty{7,295e-3}{\watt}}{\qty{229,9e-3}{\watt}} = \num{0,03173e-4} \approx \highlight{\qty{3,17}{\percent}}.
+		\]
 		Die Kennlinie der Solarzelle ist in Abbildung \ref{fig:SolarKristallinHell} zu sehen.\\
 		
 		\begin{figure}
@@ -408,17 +399,17 @@ auf den strukturellen Aufbau der Zelle zurückführen.
 				
 		
 		\subsubsection{Amorphe Solarzelle}
-		Die Solarzelle hat die Maße: \qty{2,2}{\centi\m}x\qty{2,8}{\centi\m}, was einer Fläche von \qty{6,16}{\centi\square\metre} entspricht. Die Werte der Solarzelle sind:
+		Die Solarzelle hat die Maße: $\qty{2,2}{\centi\m} \times \qty{2,8}{\centi\m}$, was einer Fläche von \qty{6,16}{\centi\square\metre} entspricht. Die Werte der Solarzelle sind:
 		
 		\paragraph{Leerlaufspannung}
 		\[	U_{OC} = \frac{\qty{3,076}{\volt}}{5} = \qty{0,6352}{\volt} \]
-		man beachte, dass man hier durch die Anzahl der verwendeten Einzelzellen teilen muss,
+		man beachte, dass hier durch die Anzahl der verwendeten Einzelzellen geteilt werden muss!
 		
 		\paragraph{Kurzschlussstrom}
-		$$\left|\frac{I_{SC}}{A}\right|=\frac{\qty{735}{\micro\ampere}}{\qty{6,16}{\centi\square\metre}}\cdot 5  \approx\qty{0,597}{\milli\ampere\per\centi\square\metre}$$
+		\[\left|\frac{I_{SC}}{A}\right|=\frac{\qty{735}{\micro\ampere}}{\qty{6,16}{\centi\square\metre}}\cdot 5  \approx\qty{0,597}{\milli\ampere\per\centi\square\metre}\]
 		
 		\paragraph{MPP} Siehe hierzu Graph \ref{fig:Leistamorphhell}
-		$$U_{MP}=\qty{2,35}{\volt}$$ $$\vert I_{MP}\vert=\qty{0,537}{\milli\ampere}$$ 
+		\[ U_{MP}=\qty{2,35}{\volt}$$ $$\vert I_{MP}\vert=\qty{0,537}{\milli\ampere} \]
 		dieser Punkt impliziert eine Leistung von \qty{1,262}{\milli\watt}.
 		
 		\begin{figure}
@@ -430,23 +421,20 @@ auf den strukturellen Aufbau der Zelle zurückführen.
 		
 		\paragraph{Füllfaktor}
 		
-		$$    Ff=\frac{I_{MP}U_{MP}}{I_{SC}U_{OC}}= \frac{\qty{0,537}{\milli\ampere}\cdot \qty{2,35}{\volt}}{\qty{3,675}{\milli\ampere} \cdot \qty{0,6352}{\volt}} = \num{0,5406} \approx \qty{54,06}{\percent}  $$
+		\[FF=\frac{I_{MP}U_{MP}}{I_{SC}U_{OC}}= \frac{\qty{0,537}{\milli\ampere}\cdot \qty{2,35}{\volt}}{\qty{3,675}{\milli\ampere} \cdot \qty{0,6352}{\volt}} = \num{0,5406} \approx \qty{54,06}{\percent}\]
 		
-		\paragraph{Der Wirkungsgrad} ist über die Leistung \qty{117,138}{\watt\per\m} der Lampe zu errechnen.\\
+		\paragraph{Der Wirkungsgrad} ist über die Leistung \qty{117,138}{\watt\per\m\squared} der Lampe zu errechnen.\\
 		Auf die Solarzelle fällt dann eine Leistung von:
-		\[P_ {belecht} = \qty{117,138}{\watt\per\m} \cdot \qty{6,16}{\centi\m\squared} \approx \qty{7,22}{\watt}\]
+		\[P_ {beleucht} = \qty{117,138}{\watt\per\square\m} \cdot \qty{6,16e-4}{\m\squared} \approx \qty{0,0721}{\watt}\]
 		
 		Der Wirkungsgrad ist somit:
-		$$
-		\eta=\frac{P_{MMP}}{P_{beleucht}} = \frac{\qty{1,262}{\milli\watt}}{\qty{7,22}{\watt}} = \num{1,74792e-4} \approx \qty{0,017}{\percent}.
-		$$
-		Die Kennlinie der Solarzelle ist in Abbildung \ref{fig:SolarAmorphHell} zu sehen.\\
+		\[ \eta=\frac{P_{MMP}}{P_{beleucht}} = \frac{\qty{1,262e-3}{\watt}}{\qty{72,1e-3}{\watt}} = \num{1,75e-2} \approx \highlight{\qty{1,8}{\percent}}. \]
+		Die Kennlinie der Solarzelle ist in Abbildung~\ref{fig:SolarAmorphHell} zu sehen.\\
 		
 		\begin{figure}
 			\centering
 			\includegraphics[width=0.8\textwidth]{Origin/SolarAmorphHell.png}
-			\caption{Kennlinie der amorphen Solarzelle im Licht}
-			\label{fig:SolarAmorphHell}
+			\caption{Kennlinie der amorphen Solarzelle im Licht}~\label{fig:SolarAmorphHell}
 		\end{figure}
 		
 		
@@ -464,7 +452,7 @@ In diesem Protokoll zu $U$-$I$-Kennlinien von Halbleiterbauelementen, konnten Ei
 Im Fall der Diode konnte ihr Verhalten als Gleichrichter beobachtet werden, da die Kennlinie in Durchlass- und Sperrrichtung ein anderes Verhalten aufweist. Durch das Fitten der Shockley-Gleichung, wurden der Sättigungsstrom und Emissionskoeffizient bestimmt.\\
 Für den Bipolartransistor wurde ein Vierquadrantenfeld aufgenommen und durch einen gewählten Arbeitspunkt die Vierpolparameter des Transistors bestimmt. Dafür wurde nicht direkt der jeweilige Anstieg am Arbeitspunkt verwendet, sondern ein Bereich um diesen, da es sich um Messdaten handelt und diese natürlicherweise Schwankungen aufweisen. Mit einem Stromverstärkungsfaktor von rund 200, wurde ein sehr typischer Wert für Kleinsignaltransistoren in der Emitterschaltung bestimmt. An diesem Wert wird deutlich, dass Transistoren nicht nur als elektrische Schalter genutzt werden können, sondern auch als Verstärker; so finden sie zum Beispiel Anwendung in den Schaltungen von Operationsverstärkern.\\
 Der Feldeffekttransistor konnte klar als  Metall-Oxid-Feldeffekttransistor identifiziert werden, da er bei nicht angelegter Steuerspannung sperrend war und kein Strom geflossen ist. Der Vorteil von Feldeffekttransistoren gegenüber Bipolartransistoren ist, dass sie quasi leistungslos gesteuert werden können, da sie spannungsgesteuert sind und kein Strom fließen muss.\\
-Die Solarzellen hatten erstaunlich geringe Wirkungsgrade (wobei auch die anfängliche Beleuchtungsmessung fehlerhaft sein könnte) und nach unserer Messung hatte die kristalline Solarzelle einen höheren Wirkungsgrad.
+Die kristalline Solarzelle hat laut unserer Messung einen fast doppelt so hohen Wirkungsgrad wie die amorphe Solarzelle. Dies liegt an der Struktur der Zelle, die eine Fernordnung aufweist und somit einer idealen Diode ähnlicher ist. Die amorphe Solarzelle hingegen hat keine Fernordnung und ist daher einer idealen Diode recht unähnlich.\\
 
 
 
@@ -474,7 +462,7 @@ Die Solarzellen hatten erstaunlich geringe Wirkungsgrade (wobei auch die anfäng
 	\begin{thebibliography}{111} \addcontentsline{toc}{chapter}{Literaturverzeichnis}
 		\bibitem{Anleitung}
 		I. Physikalisches Institut, \glqq Versuch 1.8: I-U-Kennlinien an Halbleitern
-		und Solarzellen \grqq{}, 2024.
+		und Solarzellen\grqq, 2024.
 		
 		\bibitem{beuth}
 		K. Beuth, \glqq Elektronik 2 – Bauelemente\grqq, Vogel Buchverlag (Bauelemente)
